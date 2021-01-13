@@ -20,29 +20,40 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="绪论第一代计算机网络——电路交换网络 第二代计算机网络——分组交换网络 分组交换 VS 电路交换  若要连续传送大量数据，且其传送时间远大于呼叫建立时间，则采用在数据通信之前预先分配传输带宽的电路交换较为合适 分组交换不需要预先分配传输带宽，在传送突发数据时可提高整个网络的信道利用率    分组交换网络的时延类型 传输时延：将分组比特流发送到链路上的时间   传播时延：分组比特流在链路上的传播时间">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Manu Zhu">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2021/01/13/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Manu Zhu">
+<meta property="og:description" content="绪论第一代计算机网络——电路交换网络 第二代计算机网络——分组交换网络 分组交换 VS 电路交换  若要连续传送大量数据，且其传送时间远大于呼叫建立时间，则采用在数据通信之前预先分配传输带宽的电路交换较为合适 分组交换不需要预先分配传输带宽，在传送突发数据时可提高整个网络的信道利用率    分组交换网络的时延类型 传输时延：将分组比特流发送到链路上的时间   传播时延：分组比特流在链路上的传播时间">
 <meta property="og:locale">
+<meta property="og:image" content="http://c.biancheng.net/uploads/allimg/191111/6-1911111249535K.gif">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1609999576689.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1610009844111.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1610007165052.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1610009961120.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1610010193854.png">
+<meta property="article:published_time" content="2021-01-13T09:44:49.238Z">
+<meta property="article:modified_time" content="2021-01-08T03:56:39.155Z">
 <meta property="article:author" content="Manu Zhu">
 <meta property="article:tag" content="web security, misc, crypto, hustlab">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://c.biancheng.net/uploads/allimg/191111/6-1911111249535K.gif">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/01/13/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Manu Zhu</title>
+  <title> | Manu Zhu</title>
   
 
 
@@ -141,160 +152,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/Web%20Notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Manu Zhu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Manu Zhu">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/13/Web%20Notes/" class="post-title-link" itemprop="url">Unbenannt</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2021-01-13 18:00:35 / Geändert am: 18:25:43" itemprop="dateCreated datePublished" datetime="2021-01-13T18:00:35+08:00">2021-01-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="CTF-WEB"><a href="#CTF-WEB" class="headerlink" title="CTF WEB"></a>CTF WEB</h2><h3 id="PHP相关"><a href="#PHP相关" class="headerlink" title="PHP相关"></a>PHP相关</h3><ul>
-<li><p>利用<strong>scapeshellcmd</strong>逃脱<strong>escapeshellarg</strong>单引号的束缚</p>
-<p>传入的参数是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">172.17.0.2&#39; shellcode&#39;</span><br></pre></td></tr></table></figure>
-
-<p>经过escapeshellarg处理后变成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;172.17.0.2&#39;\&#39;&#39; shellcode&#39;\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>即先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。</p>
-<p>经过escapeshellcmd处理后变成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;172.17.0.2&#39;\\&#39;&#39; shellcode&#39;\\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>这是因为escapeshellcmd对\以及最后那个不配对的引号进行了转义：</p>
-<p>最后执行的命令是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl &#39;172.17.0.2&#39;\\&#39;&#39; shellcode&#39;\\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>由于中间的\被解释为\而不再是转义字符，所以后面的’没有被转义，与再后面的’配对成了一个空白连接符</p>
-<p>所以可以简化为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.2\ shellcode&#39;\&#39;</span><br></pre></td></tr></table></figure>
-
-<p>即向172.17.0.2\发起请求，并执行shellcode。</p>
-</li>
-<li><p>php 单引号只会解析转义字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\、\’</span><br></pre></td></tr></table></figure>
-
-<p>双引号则会解析变量的值，同时解析所有转义字符</p>
-</li>
-</ul>
-<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
-<li>在$v可控的情况下，可以传入元素为一个对象和函数名的数组，这样$v()就能调用这个对象的方法</li>
-<li>php反序列化逃逸参考这个<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6718">https://xz.aliyun.com/t/6718</a></li>
-</ul>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><ul>
-<li><p>低版本ngnix .htaccess 解析漏洞的利用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .png</span><br></pre></td></tr></table></figure>
-
-<p>可以将png文件解析为php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;1&quot;&gt;SetHandler application&#x2F;x-httpd-php&lt;&#x2F;FilesMatch&gt;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<p>  把文件名包含1的解析为php</p>
-<ul>
-<li><p>php还可以写作php3,php5,phtml</p>
-</li>
-<li><p>对&lt;?的过滤可以用下面这个语句绕过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language&#x3D;php&gt;system(&quot;cat &#x2F;flag&quot;);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CGI／FastCGI 模式的服务器上.user.ini的利用</p>
-<p>auto_prepend_file和auto_append_file我们指定一个文件（如a.jpg），</p>
-<p>那么该文件就会被包含在要执行的php文件中（如index.php），类似于在index.php中插入一句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(.&#x2F;a.jpg);</span><br></pre></td></tr></table></figure>
-
-<p>这两个设置的区别只是在于auto_prepend_file是在文件前插入</p>
-<p>auto_append_file在文件最后插入（当文件调用的有exit()时该设置无效）</p>
-</li>
-<li><p>双文件上传绕过同时上传两个文件</p>
-<p>第一个文件为合法文件，第二个为马。php判断第一个文件合法即令 EnableUplad 的值为 True，是第二个文件成功绕过。</p>
-</li>
-</ul>
-<h3 id="文件包含-读取"><a href="#文件包含-读取" class="headerlink" title="文件包含/读取"></a>文件包含/读取</h3><ul>
-<li><p>file_get_contents:<br>$str = $_GET[‘cmd’];$a = file_get_contents($str,’r’);if($a === “XXXX”)<br>这时需要给cmd赋为php://input，这样就会读取post中的内容，但post格式不能为 multipart/form-data。<br>目录穿越时是不能出现文件的，只能是目录。</p>
-</li>
-<li><p>include：<br>读取文件时可以利用<br>file=php://filter/read=convert.base64-encode/resource=flag.phpfile=php://filter/convert.base64-encode/resource=index.php<br>读取文件内容。</p>
-</li>
-<li><p>LFI（local file inclusion vulnerability） To RCE：参考[这个](<a target="_blank" rel="noopener" href="https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]">https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]</a>(<a target="_blank" rel="noopener" href="https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B">https://www.k0rz3n.com/2018/11/20/一篇文章带你理解漏洞之</a> PHP 文件包含漏洞/#5-proc-self-environ))</p>
-</li>
-<li><p>phar:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	@unlink(&quot;phar.phar&quot;);</span><br><span class="line">	$phar &#x3D; new Phar(&quot;phar.phar&quot;);</span><br><span class="line">	$phar-&gt;startBuffering();</span><br><span class="line">	$phar-&gt;setStub(&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;);&#x2F;&#x2F;设置stub</span><br><span class="line">	$phar-&gt;addFromString(&quot;head.txt&quot;, &quot;&lt;?php phpinfo();?&gt;&quot;); &#x2F;&#x2F;添加要压缩的文件及内容</span><br><span class="line">	&#x2F;&#x2F;签名自动计算</span><br><span class="line">	$phar-&gt;stopBuffering();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>data:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data:,&lt;文本数据&gt;</span><br><span class="line">data:text&#x2F;plain,&lt;文本数据&gt;</span><br><span class="line">data:text&#x2F;html,&lt;HTML代码&gt;</span><br><span class="line">data:text&#x2F;html;base64,&lt;base64编码的HTML代码&gt;</span><br><span class="line">data:text&#x2F;css,&lt;CSS代码&gt;</span><br><span class="line">data:text&#x2F;css;base64,&lt;base64编码的CSS代码&gt;</span><br><span class="line">data:text&#x2F;javascript,&lt;Javascript代码&gt;</span><br><span class="line">data:text&#x2F;javascript;base64,&lt;base64编码的Javascript代码&gt;</span><br><span class="line">data:image&#x2F;gif;base64,base64编码的gif图片数据</span><br><span class="line">data:image&#x2F;png;base64,base64编码的png图片数据</span><br><span class="line">data:image&#x2F;jpeg;base64,base64编码的jpeg图片数据</span><br><span class="line">data:image&#x2F;x-icon;base64,base64编码的icon图片数据</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>包含session</p>
-<p>session默认存放位置</p>
-<ul>
-<li>/var/lib/php/sess_PHPSESSID</li>
-<li>/var/lib/php/sessions/sess_PHPSESSID</li>
-<li>/tmp/sess_PHPSESSID/tmp/sessions/sess_PHPSESSID</li>
-</ul>
-</li>
-</ul>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
@@ -310,10 +171,9 @@
       <meta itemprop="name" content="Manu Zhu">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/13/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Unbenannt</a>
-        </h2>
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -343,7 +203,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>第一代计算机网络——电路交换网络</p>
+        <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>第一代计算机网络——电路交换网络</p>
 <p>第二代计算机网络——分组交换网络</p>
 <p>分组交换 VS 电路交换</p>
 <ul>
@@ -932,531 +792,33 @@
 <p>前24bit由IEEE分配管理——OUI号，后24bit由厂商自行分配</p>
 <p>地址解析协议（ARP）：  &lt; IP; MAC;TTL&gt;  </p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Manu Zhu">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Manu Zhu">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">操作系统复习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              <time title="Erstellt: 2021-01-06 11:31:25 / Geändert am: 11:31:53" itemprop="dateCreated datePublished" datetime="2021-01-06T11:31:25+08:00">2021-01-06</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>操作系统基本功能</p>
-<ul>
-<li>文件管理</li>
-<li>存储管理</li>
-<li>设备管理</li>
-<li>进程管理</li>
-</ul>
-<p>单道批处理系统特点</p>
-<ul>
-<li>一批：作业队列</li>
-<li>自动：识别作业</li>
-<li>单道：串行</li>
-</ul>
-<p>联机批处理：主机控制输入输出</p>
-<p>脱机批处理：卫星机控制输入输出</p>
-<p>多道批处理系统特点</p>
-<ul>
-<li>多道：内存同时存放多道程序</li>
-<li>宏观上并行： 同时进入系统的几道程序都处于运行过程中，即它们先后开始了各自的运行，但都未运行完毕。 </li>
-<li>微观上串行： 从微观上看，内存中的多道程序轮流地或分时地占有CPU。 </li>
-</ul>
-<p>分时系统特点</p>
-<ul>
-<li>多路调制性：多用户联机使用同一台计算机</li>
-<li>独占性：用户感觉独占计算机</li>
-<li>交互性：及时响应用户的请求</li>
-</ul>
-<p>理解操作系统特性</p>
-<ul>
-<li>并发</li>
-<li>共享</li>
-<li>虚拟</li>
-<li>异步</li>
-</ul>
-<p>程序执行方式</p>
-<ul>
-<li><p>顺序执行</p>
-<p>① 顺序性：指处理机严格地按照程序所规定的的顺序执行。</p>
-<p>② 封闭性：指程序在封闭的环境下运行，即程序运行时独占全机资源（没有其它程序一起共享），资源的状态只有本机才能改变。</p>
-<p>③ 可再现性 只要程序执行时的环境和初始条件相同，当程序重复执行时，都可获得相同的结果。 </p>
-</li>
-<li><p>并发执行</p>
-<p>① 间断性：也就是一个程序的整个执行过程是“走走停停”的，由于共享资源，这些并发的程序相互制约，有时需要进行等待，造成了 “执行——暂停——执行” 的间断性活动规律。</p>
-<p>② 失去封闭性：由于并发的程序之间共享系统资源，导致其中任一程序在运行时，其环境都必然会收到其它程序的影响，所以就失去了运行环境的封闭性。</p>
-<p>③ 不可再现性：程序在并发执行时，由于失去了封闭性，从而也失去了不可再现性。换句话说，程序在多次执行后，虽然它们执行的环境和初始条件是相同的，但得到的结果却各不相同。</p>
-</li>
-</ul>
-<p>虚拟机 = 裸机 + 配置操作系统</p>
-<ul>
-<li>用户界面：OS提供给用户控制计算机的机制，又称用户接口。（操作界面 + 系统调用）</li>
-<li>屏蔽硬件细节</li>
-<li>扩展硬件功能</li>
-<li>系统更安全</li>
-<li>系统更可靠</li>
-<li>效率更高</li>
-</ul>
-<p>操作系统的逻辑结构</p>
-<ul>
-<li>单体式结构：操作系统四个功能放在一个模块里  UNIX/LINUX</li>
-<li>模块化结构：windowsNT</li>
-<li>可扩展化结构：微内核+核外服务器（以进程形式运行在用户态）MINIX/WINCE</li>
-<li>层次式结构：  把所有功能模块按照调用次序分别排成若干层，确保各层之间只能是单向依赖或单向调用  MSDOS</li>
-</ul>
-<p>态：核态（目态），用户态（管态）</p>
-<p>操作系统生成过程</p>
-<ul>
-<li>根据硬件环境/用户要求配置功能模块和构造参数</li>
-<li>构建（build）OS的映像  </li>
-</ul>
-<p>操作系统启动过程</p>
-<ul>
-<li><p>初始引导：把OS内核装入内存并使之开始工作接管计算机系统</p>
-<p>（FFFF0H单元的命令）加电自检 JUMP POST -》启动程序运行-》启动程序加载MBR中的引导程序-》引导程序加载硬盘上OS内核，并初始化基本参数-》OS内核边运行，边逐步加载OS的剩余部分。</p>
-</li>
-<li><p>核心初始化：OS内核初始化系统的核心数据（各种寄存器，存储系统的页表，核心进程）</p>
-</li>
-<li><p>系统初始化：为用户使用系统作准备，使系统处于待命状态（文件系统，网络系统，初始化控制台，初始化图形界面）</p>
-</li>
-</ul>
-<p>中断定义：指CPU对突发的外部事件的反应过程或机制  </p>
-<p>向量中断就是不同的中断有不同的入口地址，非向量中断就只有一个入口地址，进去了在判断中断标志来识别具体是哪个中断。向量中断实时性好，非向量中断简单 </p>
-<ul>
-<li>向量中断——由硬件提供中断服务程序入口地址；</li>
-<li>非向量中断——由软件件提供中断服务程序入口地址； </li>
-</ul>
-<p>中断类型</p>
-<ul>
-<li><p>强迫中断和自愿中断</p>
-<ul>
-<li>强迫中断：程序没有预期：例：I/O、外部中断</li>
-<li>自愿中断：程序有预期。例：执行访管指令</li>
-</ul>
-</li>
-<li><p>外中断（中断）和内中断（俘获）</p>
-<ul>
-<li>外中断：由CPU外部事件引起。例：I/O，外部事情。</li>
-<li>内中断：由CPU内部事件引起。例：访管中断、程序中断</li>
-</ul>
-</li>
-<li><p>外中断：不可屏蔽中断和可屏蔽中断</p>
-<ul>
-<li>不可屏蔽中断：中断的原因很紧要，CPU必须响应</li>
-<li>可屏蔽中断：中断原因不很紧要，CPU可以不响应  </li>
-</ul>
-</li>
-</ul>
-<p>中断相应过程：</p>
-<ul>
-<li>识别中断源</li>
-<li>保护断点和现场</li>
-<li>装入中断服务程序 CS:IP</li>
-<li>进入中断服务程序</li>
-<li>恢复现场和断点</li>
-<li>中断返回：IRET  </li>
-</ul>
-<p>系统调用</p>
-<p>特点：</p>
-<ul>
-<li>一般涉及核心资源或硬件的操作</li>
-<li>运行于核态。</li>
-<li>每个系统调用具有唯一的编号：ID</li>
-<li>调用过程会产生中断：自愿中断  </li>
-</ul>
-<p>DOS： INT 21H（AH存放系统调用的编号）<br>LINUX：INT 80H（EAX存放系统调用的编号）</p>
-<p>进程 = 程序 + 数据 + PCB</p>
-<p>进程是资源分配的最小单位，线程是cpu调度的最小单位</p>
-<p>进程的特征</p>
-<ul>
-<li>动态性 进程是程序的一次执行过程，动态产生/消亡</li>
-<li>并发性 进程可以同其他进程一起向前推进；</li>
-<li>异步性 进程按各自速度向前推进</li>
-<li>独立性 进程是系统分配资源和调度CPU的单位；</li>
-</ul>
-<p>进程的状态：</p>
-<ol>
-<li>就绪：当一个进程获得了除处理机以外的一切所需资源，一旦得到处理机即可运行，则称此进程处于就绪状态。就绪进程可以按多个优先级来划分队列。例如，当一个进程由于时间片用完而进入就绪状态时，排入低优先级队列；当进程由I／O操作完成而进入就绪状态时，排入高优先级队列。</li>
-<li>运行：当一个进程在处理机上运行时，则称该进程处于运行状态。处于此状态的进程的数目小于等于处理器的数目，对于单处理机系统，处于运行状态的进程只有一个。在没有其他进程可以执行时（如所有进程都在阻塞状态），通常会自动执行系统的空闲进程。</li>
-<li>阻塞：也称为等待或睡眠状态，一个进程正在等待某一事件发生（例如请求I/O而等待I/O完成等）而暂时停止运行，这时即使把处理机分配给进程也无法运行，故称该进程处于阻塞状态。</li>
-</ol>
-<p>状态变迁：</p>
-<ul>
-<li>就绪-》运行：进程调度</li>
-<li>运行-》就绪：时间片到；被抢占</li>
-<li>运行-》阻塞：等待某事件如I/O请求</li>
-<li>阻塞-》就绪：I/O结束或等待的事情发生</li>
-</ul>
-<p>五态：</p>
-<ul>
-<li><p>活跃就绪：是指进程在主存并且可被调度的状态。</p>
-</li>
-<li><p>静止就绪（挂起就绪）：是指进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程，或者是挂起就绪态进程具有更高的优先级，系统将把挂起就绪态进程调回主存并转换为活跃就绪。</p>
-</li>
-<li><p>活跃阻塞：是指进程已在主存，一旦等待的事件产生便进入活跃就绪状态。</p>
-</li>
-<li><p>静止阻塞：是指进程对换到辅存时的阻塞状态，一旦等待的事件产生便进入静止就绪状态。</p>
-<p><img src="https://img-blog.csdn.net/20170820104628964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> </p>
-</li>
-</ul>
-<p>进程控制块(Process Control Block，PCB)  ：包含pid，进程当前的状态，next指针（指向当前队列的下一个进程），进程优先级，cpu现场保护区，和别的进程的通信信息，家族关系，占有资源清单等等。 </p>
-<p>进程控制的概念：在进程生存全期间，对其全部行为的控制</p>
-<p>四个典型的控制行为</p>
-<ul>
-<li>创建进程</li>
-<li>撤消进程</li>
-<li>阻塞进程</li>
-<li>唤醒进程</li>
-</ul>
-<p>原语：由若干指令构成的具有特定功能的函数，具有原子性，其操作不可分割</p>
-<p>临界资源：一次只允许一个进程独占访问使用的资源</p>
-<p>临界区：进程中访问临界资源的程序段</p>
-<p>设计临界区访问机制的四个原则</p>
-<ul>
-<li>忙则等待</li>
-<li>空闲让进</li>
-<li>有限等待</li>
-<li>让权等待</li>
-</ul>
-<p>同步：  合作进程中某些操作之间需要满足某种先后关系或某个操作能否进行需要某个前提条件满足，否则只能等待  </p>
-<p>同步编程应用：</p>
-<ul>
-<li>临界区（锁）CRITICAL_SECTION    在进程内使用，保证仅一个线程可以申请到该对象。  </li>
-<li>互斥量(Mutex) （锁）HANDLE    保证只有一个线程或进程可以申请到该对象。  </li>
-<li>信号量（Semaphore）HANDLE    允许指定数目的多个线程/进程访问临界区  </li>
-<li>事件（Event）HANDLE    用于通知一个或多个线程某事件出现或标识某操作已经完成。  </li>
-<li>等待操作</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//WINDOWS同步机制</span></span><br><span class="line"></span><br><span class="line"><span class="function">DWORD <span class="title">WaitForMultipleObjects</span> <span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	DWORD nCount,<span class="comment">//等待对象的数量</span></span></span></span><br><span class="line"><span class="function"><span class="params">	CONST HANDLE *lpHandles,<span class="comment">//对象句柄的数组</span></span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bWaitAll,<span class="comment">//等待方式（true全部等待）</span></span></span></span><br><span class="line"><span class="function"><span class="params">	DWORD dwMilliseconds<span class="comment">//等待时间，单位MS</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">DWORD <span class="title">WaitForSingleObject</span> <span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hHandle,<span class="comment">//对象句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">	DWORD dwMilliseconds<span class="comment">//等待时间，单位MS</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="comment">/****************************************************************/</span></span><br><span class="line">EnterCriticalSection( );<span class="comment">//上锁操作/进入临界区</span></span><br><span class="line">LeaveCriticalSection( );<span class="comment">//开锁操作/离开临界区</span></span><br><span class="line">InitializeCriticalSection( );<span class="comment">//初始化临界区/初始化锁</span></span><br><span class="line">DeleteCriticalSection( );<span class="comment">//删除临界区/删除锁</span></span><br><span class="line"><span class="comment">/****************************************************************/</span></span><br><span class="line"><span class="function">HANDLE <span class="title">CreateMutex</span><span class="params">( <span class="comment">//创建互斥量 :全局用1次</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPSECURITY_ATTRIBUTES lpMutexAttributes,</span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bInitialOwner, <span class="comment">// 初始化互斥量的状态：真或假</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPCTSTR lpName <span class="comment">// 名字，可为NULL但不能跨进程用</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">HANDLE <span class="title">OpenMutex</span><span class="params">(<span class="comment">//打开互斥量: 每个进程用1次</span></span></span></span><br><span class="line"><span class="function"><span class="params">	DWORD dwDesiredAccess,</span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bInheritHandle,</span></span></span><br><span class="line"><span class="function"><span class="params">	LPCTSTR lpName <span class="comment">// 名字</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BOOL <span class="title">CloseHandle</span><span class="params">(<span class="comment">//关闭互斥量: 每个进程用1次</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hObject <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BOOL <span class="title">ReleaseMutex</span><span class="params">(<span class="comment">// 释放：开锁</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hMutex <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="comment">/****************************************************************/</span></span><br><span class="line"><span class="function">HANDLE <span class="title">CreateSemaphore</span><span class="params">( <span class="comment">//创建信号量：全局用1次</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,<span class="comment">// 安全属性</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LONG lInitialCount, <span class="comment">// 初始值</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LONG lMaximumCount, <span class="comment">// 最大值</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPCTSTR lpName <span class="comment">// 名字</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">HANDLE <span class="title">OpenSemaphore</span><span class="params">(<span class="comment">//打开信号量：每个进程用1次</span></span></span></span><br><span class="line"><span class="function"><span class="params">	DWORD dwDesiredAccess, <span class="comment">// 存取方式</span></span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bInheritHandle, <span class="comment">// 是否能被继承</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPCTSTR lpName <span class="comment">// 名字</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BOOL <span class="title">CloseHandle</span><span class="params">(<span class="comment">//关闭信号量：每个进程用1次</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hObject <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BOOL <span class="title">ReleaseSemaphore</span><span class="params">(<span class="comment">//释放信号量</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hSemaphore, <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LONG lReleaseCount, <span class="comment">// 释放数，让信号量的值增加的数量</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPLONG lpPreviousCount <span class="comment">// 得到释放前信号量的值，可为NULL</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="comment">/****************************************************************/</span></span><br><span class="line"><span class="function">HANDLE <span class="title">CreateEvent</span> <span class="params">( <span class="comment">//创建事件对象</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPSECURITY_ATTRIBUTES lpEventAttributes,<span class="comment">// 安全属性</span></span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bManualReset, <span class="comment">// 是否为人工重置</span></span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bInitialState, <span class="comment">// 初始状态是否为有信号状态</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPCTSTR lpName <span class="comment">// 名字</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="function">HANDLE <span class="title">OpenEvent</span> <span class="params">(<span class="comment">//打开事件对象</span></span></span></span><br><span class="line"><span class="function"><span class="params">	DWORD dwDesiredAccess, <span class="comment">// 存取方式</span></span></span></span><br><span class="line"><span class="function"><span class="params">	BOOL bInheritHandle, <span class="comment">// 是否能够被继承</span></span></span></span><br><span class="line"><span class="function"><span class="params">	LPCTSTR lpName <span class="comment">// 名字</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="function">BOOL <span class="title">ResetEvent</span> <span class="params">(<span class="comment">//设置事件为无信号状态</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hEvent <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="function">BOOL <span class="title">SetEvent</span> <span class="params">(<span class="comment">//设置事件有信号状态</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hEvent <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br><span class="line"><span class="function">BOOL <span class="title">CloseHandle</span> <span class="params">(<span class="comment">//关闭事件对象</span></span></span></span><br><span class="line"><span class="function"><span class="params">	HANDLE hObject <span class="comment">// 句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>进程通信</p>
-<ul>
-<li>管道通信仅能用于父子或兄弟进程间通信</li>
-<li>双向通信必须建立2个管道</li>
-</ul>
-<p>软件中断：由写在程序中的语句引起的中断程序的执行，称为软件中断。</p>
-<p>Linux软中断通信机制</p>
-<ul>
-<li>kill(pid, sig)：传递软中断信号</li>
-<li>signal(sig, func)：注册软中断信号</li>
-<li>wait( )：用于父子进程间的同步</li>
-<li>sleep( n )：使当前进程睡眠n秒后自动唤醒自己 </li>
-</ul>
-<p>死锁：两个或多个进程无限期地等待永远不会发生的条件的一种系统状态。</p>
-<p>死锁的原因：</p>
-<ul>
-<li>系统资源有限</li>
-<li>并发进程推进顺序不当</li>
-</ul>
-<p>死锁的必要条件 ：</p>
-<ul>
-<li>资源独占性</li>
-<li>不可剥夺</li>
-<li>部分分配</li>
-<li>环路条件</li>
-</ul>
-<p>预防死锁：</p>
-<ul>
-<li>破坏互斥条件</li>
-<li>破坏不剥夺条件</li>
-<li>破坏部分分配条件     预先静态分配法</li>
-<li>破坏环路条件             有序资源分配法</li>
-</ul>
-<p>避免死锁：银行家算法</p>
-<p>检测死锁</p>
-<p>恢复死锁</p>
-<p>进程调度概念：  在合适的时候以一定策略选择一个就绪进程运行  </p>
-<p>进程调度的目标</p>
-<ul>
-<li>响应速度尽可能快</li>
-<li>进程处理的时间尽可能短</li>
-<li>系统吞吐量尽可能大</li>
-<li>资源利用率尽可能高</li>
-<li>对所有进程要公平</li>
-<li>避免饥饿</li>
-<li>避免死锁</li>
-</ul>
-<p>进程调度两个量化的衡量指标</p>
-<ul>
-<li>周转时间/平均周转时间      进程提交给计算机到完成所花费的时间  </li>
-<li>带权周转时间/平均带权周转时间      进程的周转时间/进程的运行时间</li>
-</ul>
-<p>进程调度算法</p>
-<ul>
-<li>先来先服务调度（First Come First Serve）</li>
-<li>短作业优先调度算法（Short Job First）</li>
-<li>响应比高者优先调度算法    响应比 =（等待时间+运行时间）/运行时间  </li>
-<li>优先数调度算法      进程优先数=静态优先数+动态优先数  </li>
-<li>循环轮转调度法（ROUND-ROBIN）    进程以时间片q为单位轮流使用CPU</li>
-<li>可变时间片轮转调度法    时间片的大小可变</li>
-<li>多重时间片循环调度法    组织多个轮转队列</li>
-</ul>
-<p>linux进程调度</p>
-<ul>
-<li>基于优先级调度，选择优先级最高的进程运行</li>
-<li>既支持普通的分时进程，也支持实时进程</li>
-<li>让实时进程优先于普通进程</li>
-<li>保证普通进程公平使用CPU时间 </li>
-</ul>
-<ul>
-<li><p>普通进程</p>
-<p>采用动态优先级来调度</p>
-<p>调度程序周期性地修改优先级（避免饥饿）</p>
-</li>
-<li><p>实时进程</p>
-<p>采用静态优先级来调度</p>
-<p>由用户预先指定，以后不会改变  </p>
-<p>实时进程的优先级总是比普通进程的优先级高  </p>
-</li>
-</ul>
-<p>存储管理的功能</p>
-<ul>
-<li>地址映射</li>
-<li>虚拟存储<ol>
-<li>页式虚拟存储</li>
-<li>段式虚拟存储</li>
-</ol>
-</li>
-<li>内存分配</li>
-<li>存储保护</li>
-</ul>
-<p>物理内存管理</p>
-<ul>
-<li><p>单一区存储管理（不分区存储管理）</p>
-</li>
-<li><p>分区存储管理</p>
-<p>分区的分配  在所有空闲区中寻找一个空闲区，分配给用户使用。</p>
-<ol>
-<li>首次适应法   尽可能地先利用低地址空间</li>
-<li>最佳适应法   选中分区是满足要求的最小的空闲区</li>
-<li>最坏适应法   空闲区表按大小递减排序</li>
-</ol>
-</li>
-<li><p>内存覆盖技术  常驻区 覆盖区</p>
-</li>
-<li><p>内存交换技术 </p>
-<p>内存不够时把进程写到磁盘（换出/Swap Out）</p>
-<p>当进程要运行时重新写回内存（换入/Swap In）</p>
-</li>
-</ul>
-<p>虚拟内存管理</p>
-<p>改善物理内存管理的相关技术</p>
-<ul>
-<li>内存拼接</li>
-<li>对换技术【Swapping】</li>
-<li>覆盖技术【Overlay】</li>
-</ul>
-<p>典型虚拟内存管理方式</p>
-<ul>
-<li><p>页式虚拟存储管理</p>
-<ul>
-<li><p>虚拟地址VA 分成页号P和页内偏移W</p>
-</li>
-<li><p>页表扩充</p>
-<ul>
-<li><p>中断位I ——标识该页是否在内存</p>
-<p>I =１，不在内存</p>
-<p>I =０，在内存</p>
-</li>
-<li><p>辅存地址——该页在辅存上的位置</p>
-</li>
-<li><p>访问位——标识该页最近是否被访问？</p>
-<p>０ 最近没有被访问</p>
-<p>１ 最近已被访问</p>
-</li>
-<li><p>修改位——标识该页的数据是否已被修改？</p>
-<p>０ 该页未被修改</p>
-<p>１ 该页已被修改</p>
-</li>
-</ul>
-</li>
-<li><p>缺页中断</p>
-</li>
-<li><p>淘汰策略</p>
-<ul>
-<li><p>最佳算法（OPT算法）</p>
-<p>淘汰以后不再需要或最远的将来才会用到的页面</p>
-</li>
-<li><p>先进先出淘汰算法（FIFO算法）</p>
-<p>淘汰在内存中停留时间最长的页面</p>
-</li>
-<li><p>最久未使用淘汰算法（LRU算法）</p>
-<p>淘汰最长时间未被使用的页面，页面设置一个定时器（移位寄存器R）。页面被访问则重置1。周期性地(周期很短)将所有页面的R左移1位（右边补0）</p>
-</li>
-<li><p>最不经常使用（LFU算法 ）</p>
-<p>选择到当前时间为止被访问次数最少的页面</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>段式虚拟存储管理</p>
-</li>
-<li><p>段页式虚拟存储管理</p>
-</li>
-</ul>
-<p>设备按信息组织特征分为<strong>字符设备</strong>(如打印机), <strong>块设备</strong>(如磁盘),<strong>网络设备</strong> </p>
-<p>设备独立性</p>
-<ul>
-<li>设备独立性：<strong>用户在程序中仅使用仅与实际设备无关的逻辑设备名</strong>。</li>
-<li>逻辑设备名：用户自己指定的暂时的、可更改的设备名 (或设备号)。</li>
-<li>物理设备名：系统提供的永久的、不可更改的设备标准名称。  </li>
-</ul>
-<ul>
-<li>程序独立于分配给它的某种类型的具体设备<ol>
-<li>系统可动态分配给程序某类设备中任一台物理设备，程序都<br>能正确地执行。</li>
-</ol>
-</li>
-<li>程序应尽可能与它所使用的I/O设备类型无关<ol>
-<li>在输入/输出信息时，信息可以来自不同类型的具体设备</li>
-<li>若要改变输入 /输出设备的类型，程序只需进行最少的改动。</li>
-</ol>
-</li>
-<li>设备独立性的优点<ol>
-<li>方便用户</li>
-<li>改善设备利用率</li>
-<li>提高系统的可扩展性和可适应性修改。  </li>
-</ol>
-</li>
-</ul>
-<p>缓冲： 用来暂时存放io数据的区域。 </p>
-<p>引入缓冲的原因：</p>
-<ul>
-<li>生产、消费者速度有差异</li>
-<li>传输数据速度不一致</li>
-<li>可以用来实现应用程序的拷贝</li>
-</ul>
-<p>缓冲作用：</p>
-<ul>
-<li>连接不同数据传输速度的设备</li>
-<li>协调数据记录大小的不一致</li>
-<li>正确执行应用程序的语义拷贝  </li>
-</ul>
-<p>spolling技术</p>
-<ul>
-<li>任务执行前：预先将程序和数据输入到输入井中</li>
-<li>任务运行时：使用数据时，从输入井中取出</li>
-<li>任务运行时：输出数据时，把数据写入输出井</li>
-<li>任务运行完：外设空闲时输出全部数据和信息 </li>
-</ul>
-<p>设备驱动程序的开发过程</p>
-<p>文件是系统中信息存放的一种组织形式</p>
-<ul>
-<li>文件是若干信息项的构成。（信息项可以是字节，可以是结构化数据。）</li>
-<li>用户通过读写指针来存取文件的信息项。</li>
-<li>文件具有文件名。用户通过文件名存取文件。  </li>
-</ul>
-<p>文件分类</p>
-<ul>
-<li><p>用途：系统文件，库文件，用户文件</p>
-</li>
-<li><p>操作权限：只读文件，读写文件，不保护文件</p>
-</li>
-<li><p>性质：普通文件，目录文件，设备文件</p>
-</li>
-<li><p>逻辑结构：流式文件（采用），记录文件</p>
-</li>
-<li><p>物理结构：</p>
-<p>连续文件</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829442770.png" alt="1609829442770"></p>
-<p>索引结构</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829571681.png" alt="1609829571681"></p>
-<p>串联文件（FAT文件系统）</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829594656.png" alt="1609829594656"></p>
-</li>
-</ul>
-<p>文件系统的目标是让用户以文件名来存取文件  </p>
-<p>文件逻辑结构</p>
-<ul>
-<li> (用户的观点)</li>
-<li> 为用户提供逻辑结构清晰、使用方便的文件。</li>
-<li> 强调文件信息项的<strong>构成方式</strong>和用户的<strong>存取方式</strong>。  </li>
-</ul>
-<p>文件物理结构</p>
-<ul>
-<li>(系统的观点)</li>
-<li>文件在存储设备（例:硬盘）上的存储结构</li>
-<li>强调合理利用储存空间，缩短I/O存取时间。  </li>
-</ul>
-<p>记录磁盘空闲块的方法：</p>
-<ul>
-<li>空闲文件目录：一片连续空闲区组成一个空闲文件</li>
-</ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609858113570.png" alt="1609858113570"></p>
-<ul>
-<li><p>空闲块链：所有空闲块连接在一起</p>
-</li>
-<li><p>位示图：每个bit对应1个存储块的使用情况，0表示占用，1表示空闲</p>
-</li>
-</ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609858143738.png" alt="1609858143738"></p>
-<p>文件目录管理</p>
-<p>文件目录：  文件名址录，记录文件名和存放地址的目录表  </p>
-<p>文件全名：  包括从根目录开始到文件为止的通路上所有子目录路径。  </p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="操作系统复习笔记">
+      <i class="fa fa-chevron-left"></i> 操作系统复习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/13/Web%20Notes/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -1509,6 +871,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%AA%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E7%BD%91%E7%BB%9C%E7%9A%84%E6%97%B6%E5%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">分组交换网络的时延类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5"><span class="nav-number">1.0.2.</span> <span class="nav-text">一些概念</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%9C%80%E6%B1%82"><span class="nav-number">2.2.</span> <span class="nav-text">服务需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8%E9%87%87%E7%94%A8%E7%9A%84%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">常见应用采用的传输协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">2.4.</span> <span class="nav-text">套接字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94WEB%EF%BC%88C-S%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="nav-number">2.5.</span> <span class="nav-text">网络应用（1）——WEB（C&#x2F;S模式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">2.5.1.</span> <span class="nav-text">web的构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E5%86%85%E5%AE%B9%E7%9A%84%E8%A1%A8%E8%BE%BE%E2%80%94%E2%80%94HTML"><span class="nav-number">2.5.2.</span> <span class="nav-text">web内容的表达——HTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E5%86%85%E5%AE%B9%E7%9A%84%E4%BC%A0%E8%BE%93%E2%80%94%E2%80%94HTTP%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.5.3.</span> <span class="nav-text">web内容的传输——HTTP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E6%8A%A5%E6%96%87"><span class="nav-number">2.5.4.</span> <span class="nav-text">HTTP报文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87"><span class="nav-number">2.5.4.1.</span> <span class="nav-text">请求报文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.4.2.</span> <span class="nav-text">支持的请求方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="nav-number">2.5.4.3.</span> <span class="nav-text">响应报文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9B%B8%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C%E7%9F%AD%E8%AF%AD"><span class="nav-number">2.5.4.4.</span> <span class="nav-text">常见相应状态码和短语</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%88%B7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%A4%E4%BA%92%E2%80%94%E2%80%94Cookie"><span class="nav-number">2.5.4.5.</span> <span class="nav-text">用户-服务器交互——Cookie</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="nav-number">2.6.</span> <span class="nav-text">网络应用（2）——电子邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">2.6.1.</span> <span class="nav-text">电子邮件系统的构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SMTP%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.6.2.</span> <span class="nav-text">SMTP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%82%AE%E4%BB%B6%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.6.3.</span> <span class="nav-text">邮件报文格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9EASCII%E7%A0%81%E6%95%B0%E6%8D%AE%E7%9A%84MIME%E6%89%A9%E5%B1%95"><span class="nav-number">2.6.4.</span> <span class="nav-text">非ASCII码数据的MIME扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%BA%E8%8E%B7%E5%8F%96%E9%82%AE%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.6.5.</span> <span class="nav-text">客户机获取邮件的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94DNS"><span class="nav-number">2.7.</span> <span class="nav-text">网络应用（3）——DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">2.7.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.7.2.</span> <span class="nav-text">DNS协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E7%B1%BBDNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.7.3.</span> <span class="nav-text">四类DNS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F"><span class="nav-number">2.7.4.</span> <span class="nav-text">三种查询方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS%E5%8F%AF%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.7.5.</span> <span class="nav-text">DNS可提供的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.7.6.</span> <span class="nav-text">DNS记录格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94P2P%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB"><span class="nav-number">2.8.</span> <span class="nav-text">网络应用（4）——P2P文件共享</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83"><span class="nav-number">2.8.1.</span> <span class="nav-text">核心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%88%86%E5%8F%91"><span class="nav-number">2.8.2.</span> <span class="nav-text">文件分发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BitTorrent%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.8.3.</span> <span class="nav-text">BitTorrent基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BitTorrent%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">2.8.4.</span> <span class="nav-text">BitTorrent工作机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E6%B5%81"><span class="nav-number">2.9.</span> <span class="nav-text">网络应用（5）——视频流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="nav-number">2.9.1.</span> <span class="nav-text">视频编码方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B"><span class="nav-number">2.10.</span> <span class="nav-text">套接字编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.0.1.</span> <span class="nav-text">传输层提供的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.0.2.</span> <span class="nav-text">传输层协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="nav-number">3.0.3.</span> <span class="nav-text">传输层功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AE%B9"><span class="nav-number">3.0.4.</span> <span class="nav-text">传输层协议的工作内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.0.5.</span> <span class="nav-text">端口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94UDP"><span class="nav-number">3.1.</span> <span class="nav-text">传输层协议（1）——UDP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.1.1.</span> <span class="nav-text">UDP数据报格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">UDP处理数据的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%87%E7%94%A8UDP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">3.1.3.</span> <span class="nav-text">采用UDP协议的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP%E7%9A%84%E6%A3%80%E9%AA%8C%E5%92%8C"><span class="nav-number">3.1.4.</span> <span class="nav-text">UDP的检验和</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E9%9D%A0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="nav-number">3.2.</span> <span class="nav-text">可靠数据传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%9D%A0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-rdt"><span class="nav-number">3.2.1.</span> <span class="nav-text">可靠数据传输协议(rdt)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rdt1-0"><span class="nav-number">3.2.2.</span> <span class="nav-text">rdt1.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rdt2-0"><span class="nav-number">3.2.3.</span> <span class="nav-text">rdt2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rdt2-1"><span class="nav-number">3.2.4.</span> <span class="nav-text">rdt2.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rdt2-2"><span class="nav-number">3.2.5.</span> <span class="nav-text">rdt2.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rdt3-0"><span class="nav-number">3.2.6.</span> <span class="nav-text">rdt3.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%EF%BC%9A%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%8A%80%E6%9C%AF"><span class="nav-number">3.2.7.</span> <span class="nav-text">提高性能：流水线技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">3.2.7.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%93%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%8A%80%E6%9C%AF%E4%B8%AD%E4%B8%A2%E5%A4%B1%E4%B8%80%E4%B8%AA%E5%88%86%E7%BB%84%E5%90%8E%EF%BC%9A"><span class="nav-number">3.2.7.2.</span> <span class="nav-text">当流水线技术中丢失一个分组后：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GBN"><span class="nav-number">3.2.7.3.</span> <span class="nav-text">GBN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GBN%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.2.7.4.</span> <span class="nav-text">GBN滑动窗口大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SR%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.2.7.5.</span> <span class="nav-text">SR协议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94TCP"><span class="nav-number">3.3.</span> <span class="nav-text">传输层协议（2）——TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">3.3.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">TCP数据报格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6"><span class="nav-number">3.3.3.</span> <span class="nav-text">TCP超时控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="nav-number">3.3.3.1.</span> <span class="nav-text">基本要求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%B0%E7%AE%97%E5%BE%80%E8%BF%94%E6%97%B6%E5%BB%B6"><span class="nav-number">3.3.3.2.</span> <span class="nav-text">估算往返时延</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%B0%E7%AE%97%E5%81%8F%E5%B7%AE"><span class="nav-number">3.3.3.3.</span> <span class="nav-text">估算偏差</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E8%AE%BE%E7%BD%AE%E7%9A%84%E8%B6%85%E6%97%B6%E9%97%B4%E9%9A%94"><span class="nav-number">3.3.3.4.</span> <span class="nav-text">最终设置的超时间隔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.3.4.</span> <span class="nav-text">TCP建立连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">3.3.5.</span> <span class="nav-text">TCP流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">3.3.5.1.</span> <span class="nav-text">流量控制的目的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">3.3.5.2.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8E%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.3.5.3.</span> <span class="nav-text">与拥塞控制的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-number">3.3.6.</span> <span class="nav-text">TCP拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.3.6.1.</span> <span class="nav-text">拥塞控制的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E6%96%B9%E5%A6%82%E4%BD%95%E6%84%9F%E7%9F%A5%E6%8B%A5%E5%A1%9E"><span class="nav-number">3.3.6.2.</span> <span class="nav-text">发送方如何感知拥塞</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94Reno%E7%AE%97%E6%B3%95"><span class="nav-number">3.3.6.3.</span> <span class="nav-text">TCP拥塞控制算法——Reno算法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">4.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">4.0.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">4.0.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">4.0.3.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">4.0.4.</span> <span class="nav-text">分组交换机的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.0.5.</span> <span class="nav-text">网络层提供的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E4%B8%8E%E8%BF%90%E8%BE%93%E5%B1%82%E7%9B%B8%E5%BA%94%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.0.6.</span> <span class="nav-text">网络层与运输层相应服务的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E7%94%B5%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">虚电路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E6%88%90"><span class="nav-number">4.1.2.</span> <span class="nav-text">组成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%BD%91%E7%BB%9C"><span class="nav-number">4.2.</span> <span class="nav-text">数据报网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">路由器的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3"><span class="nav-number">4.3.1.</span> <span class="nav-text">输入端口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%95%A3%E5%BC%8F%E4%BA%A4%E6%8D%A2"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">分散式交换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87-2"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E9%98%9F"><span class="nav-number">4.3.1.3.</span> <span class="nav-text">排队</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E7%BB%93%E6%9E%84"><span class="nav-number">4.3.2.</span> <span class="nav-text">交换结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3"><span class="nav-number">4.3.3.</span> <span class="nav-text">输出端口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">4.3.3.1.</span> <span class="nav-text">缓存管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5"><span class="nav-number">4.3.3.2.</span> <span class="nav-text">调度策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E9%98%9F%EF%BC%88%E7%BC%93%E5%86%B2%E5%8C%BA%E8%AE%BE%E7%BD%AE%EF%BC%89"><span class="nav-number">4.3.3.3.</span> <span class="nav-text">排队（缓冲区设置）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%B8%A2%E5%BC%83%E7%AD%96%E7%95%A5"><span class="nav-number">4.3.3.4.</span> <span class="nav-text">分组丢弃策略</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.4.</span> <span class="nav-text">网络层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.4.1.</span> <span class="nav-text">IP数据报的格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv4%E5%8D%8F%E8%AE%AE%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E7%BC%96%E5%9D%80"><span class="nav-number">4.4.2.</span> <span class="nav-text">IPv4协议（1）——编址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ip%E7%BB%93%E6%9E%84"><span class="nav-number">4.4.2.1.</span> <span class="nav-text">ip结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ip%E5%88%86%E7%B1%BB"><span class="nav-number">4.4.2.2.</span> <span class="nav-text">ip分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="nav-number">4.4.2.3.</span> <span class="nav-text">子网划分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-number">4.4.2.4.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CIDR%E7%BC%96%E5%9D%80%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.4.2.5.</span> <span class="nav-text">CIDR编址格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80"><span class="nav-number">4.4.2.6.</span> <span class="nav-text">网络地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80"><span class="nav-number">4.4.2.7.</span> <span class="nav-text">广播地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BB%E6%9C%BA%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97IP%E5%9C%B0%E5%9D%80"><span class="nav-number">4.4.2.8.</span> <span class="nav-text">主机如何获得IP地址</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv4%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E5%AF%BB%E5%9D%80"><span class="nav-number">4.4.3.</span> <span class="nav-text">IPv4（2）——寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%A4%E7%BA%A7%E5%AF%BB%E5%9D%80%E8%BF%87%E7%A8%8B"><span class="nav-number">4.4.3.1.</span> <span class="nav-text">两级寻址过程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv4%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E8%BD%AC%E5%8F%91"><span class="nav-number">4.4.4.</span> <span class="nav-text">IPv4（3）——转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.4.5.</span> <span class="nav-text">NAT协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ICMP%EF%BC%9A%E5%9B%A0%E7%89%B9%E7%BD%91%E6%8E%A7%E5%88%B6%E6%8A%A5%E6%96%87%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.4.6.</span> <span class="nav-text">ICMP：因特网控制报文协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ICMP%E6%8A%A5%E6%96%87%E5%88%86%E7%B1%BB"><span class="nav-number">4.4.6.1.</span> <span class="nav-text">ICMP报文分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ICMP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.4.6.2.</span> <span class="nav-text">ICMP报文格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv6%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.4.7.</span> <span class="nav-text">IPv6协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#IPv6%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.4.7.1.</span> <span class="nav-text">IPv6数据报格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.</span> <span class="nav-text">选路算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="nav-number">4.5.1.</span> <span class="nav-text">几个概念：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95%E7%9A%84%E7%9B%AE%E7%9A%84%EF%BC%9A"><span class="nav-number">4.5.2.</span> <span class="nav-text">选路算法的目的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB%EF%BC%9A"><span class="nav-number">4.5.3.</span> <span class="nav-text">选路算法分类：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.3.1.</span> <span class="nav-text">全局选路算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%95%A3%E5%BC%8F%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.3.2.</span> <span class="nav-text">分散式选路算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.3.3.</span> <span class="nav-text">静态选路算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.3.4.</span> <span class="nav-text">动态选路算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E6%95%8F%E6%84%9F%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.3.5.</span> <span class="nav-text">负载敏感算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E8%BF%9F%E9%92%9D%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.3.6.</span> <span class="nav-text">负载迟钝算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.5.4.</span> <span class="nav-text">层次选路算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="nav-number">4.5.4.1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">4.5.4.2.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%A0%E7%89%B9%E7%BD%91%E4%B8%AD%E7%9A%84%E9%80%89%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.6.</span> <span class="nav-text">因特网中的选路算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E8%B7%AF%E4%BF%A1%E6%81%AF%E5%8D%8F%E8%AE%AE%E2%80%94%E2%80%94RIP%EF%BC%88%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E7%AE%97%E6%B3%95%EF%BC%89"><span class="nav-number">4.6.1.</span> <span class="nav-text">选路信息协议——RIP（距离向量算法）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">4.6.1.1.</span> <span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E9%80%89%E8%B7%AF%E2%80%94%E2%80%94OSPF%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.6.2.</span> <span class="nav-text">链路状态选路——OSPF协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AS%E9%97%B4%E7%9A%84%E8%B7%AF%E7%94%B1%E2%80%94%E2%80%94BGP4"><span class="nav-number">4.6.3.</span> <span class="nav-text">AS间的路由——BGP4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">5.</span> <span class="nav-text">链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.0.1.</span> <span class="nav-text">链路层提供的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.0.2.</span> <span class="nav-text">链路层的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E9%94%99%E5%92%8C%E7%BA%A0%E9%94%99"><span class="nav-number">5.0.3.</span> <span class="nav-text">检错和纠错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A3%80%E6%9F%A5%E5%92%8C"><span class="nav-number">5.0.3.1.</span> <span class="nav-text">因特网检查和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E9%AA%8C%E7%A0%81"><span class="nav-number">5.0.3.2.</span> <span class="nav-text">循环冗余检验码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E9%93%BE%E8%B7%AF"><span class="nav-number">5.0.4.</span> <span class="nav-text">两种链路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%BF%E6%92%AD%E9%93%BE%E8%B7%AF%E7%9A%84%E7%A2%B0%E6%92%9E"><span class="nav-number">5.0.5.</span> <span class="nav-text">广播链路的碰撞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%9D%80%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.1.</span> <span class="nav-text">多址访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E9%81%93%E5%88%92%E5%88%86%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.1.1.</span> <span class="nav-text">信道划分协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.1.2.</span> <span class="nav-text">随机访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CSMA"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">CSMA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BD%BD%E6%B3%A2%E4%BE%A6%E5%90%AC"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">载波侦听</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSMA-CD"><span class="nav-number">5.1.2.3.</span> <span class="nav-text">CSMA&#x2F;CD</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSMA-CA"><span class="nav-number">5.1.2.4.</span> <span class="nav-text">CSMA&#x2F;CA</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AE%E6%B5%81%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.1.3.</span> <span class="nav-text">轮流协议</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
