@@ -27,18 +27,18 @@
 <meta property="og:site_name" content="Manu Zhu">
 <meta property="og:description" content="操作系统基本功能  文件管理 存储管理 设备管理 进程管理  单道批处理系统特点  一批：作业队列 自动：识别作业 单道：串行  联机批处理：主机控制输入输出 脱机批处理：卫星机控制输入输出 多道批处理系统特点  多道：内存同时存放多道程序 宏观上并行： 同时进入系统的几道程序都处于运行过程中，即它们先后开始了各自的运行，但都未运行完毕。  微观上串行： 从微观上看，内存中的多道程序轮流地或分时地">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdn.net/20170820104628964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1609829442770.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1609829571681.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1609829594656.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1609858113570.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1609858143738.png">
+<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3c07a0a2-7951-45dc-86d5-656aeb2d8318.png">
+<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/53d63d54-489f-4ca1-81e7-b6bd1594db6f.png">
+<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4516bee4-4917-414a-9c47-b0a514e7194a.png">
+<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/0821c4a2-5f1b-4fac-9fcd-e383e14e9646.png">
+<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/bd4f9cde-789e-4b13-b75f-7d52a52956de.png">
+<meta property="og:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/f67cbb03-217b-43cc-bc93-ec172662b744.png">
 <meta property="article:published_time" content="2021-01-14T02:05:32.000Z">
-<meta property="article:modified_time" content="2021-01-14T02:05:58.997Z">
+<meta property="article:modified_time" content="2021-01-20T02:42:01.233Z">
 <meta property="article:author" content="Manu Zhu">
 <meta property="article:tag" content="web security, misc, crypto, hustlab">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170820104628964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:image" content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3c07a0a2-7951-45dc-86d5-656aeb2d8318.png">
 
 <link rel="canonical" href="http://example.com/2021/01/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
@@ -181,10 +181,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-14 10:05:32 / Modified: 10:05:58" itemprop="dateCreated datePublished" datetime="2021-01-14T10:05:32+08:00">2021-01-14</time>
+              <time title="Created: 2021-01-14 10:05:32" itemprop="dateCreated datePublished" datetime="2021-01-14T10:05:32+08:00">2021-01-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-20 10:42:01" itemprop="dateModified" datetime="2021-01-20T10:42:01+08:00">2021-01-20</time>
+              </span>
 
           
 
@@ -345,16 +351,12 @@
 </ul>
 <p>五态：</p>
 <ul>
-<li><p>活跃就绪：是指进程在主存并且可被调度的状态。</p>
-</li>
-<li><p>静止就绪（挂起就绪）：是指进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程，或者是挂起就绪态进程具有更高的优先级，系统将把挂起就绪态进程调回主存并转换为活跃就绪。</p>
-</li>
-<li><p>活跃阻塞：是指进程已在主存，一旦等待的事件产生便进入活跃就绪状态。</p>
-</li>
-<li><p>静止阻塞：是指进程对换到辅存时的阻塞状态，一旦等待的事件产生便进入静止就绪状态。</p>
-<p><img src="https://img-blog.csdn.net/20170820104628964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> </p>
-</li>
+<li>活跃就绪：是指进程在主存并且可被调度的状态。</li>
+<li>静止就绪（挂起就绪）：是指进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程，或者是挂起就绪态进程具有更高的优先级，系统将把挂起就绪态进程调回主存并转换为活跃就绪。</li>
+<li>活跃阻塞：是指进程已在主存，一旦等待的事件产生便进入活跃就绪状态。</li>
+<li>静止阻塞：是指进程对换到辅存时的阻塞状态，一旦等待的事件产生便进入静止就绪状态。</li>
 </ul>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3c07a0a2-7951-45dc-86d5-656aeb2d8318.png"></p>
 <p>进程控制块(Process Control Block，PCB)  ：包含pid，进程当前的状态，next指针（指向当前队列的下一个进程），进程优先级，cpu现场保护区，和别的进程的通信信息，家族关系，占有资源清单等等。 </p>
 <p>进程控制的概念：在进程生存全期间，对其全部行为的控制</p>
 <p>四个典型的控制行为</p>
@@ -614,11 +616,11 @@
 </li>
 <li><p>物理结构：</p>
 <p>连续文件</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829442770.png" alt="1609829442770"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/53d63d54-489f-4ca1-81e7-b6bd1594db6f.png"></p>
 <p>索引结构</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829571681.png" alt="1609829571681"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4516bee4-4917-414a-9c47-b0a514e7194a.png"></p>
 <p>串联文件（FAT文件系统）</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829594656.png" alt="1609829594656"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/0821c4a2-5f1b-4fac-9fcd-e383e14e9646.png"></p>
 </li>
 </ul>
 <p>文件系统的目标是让用户以文件名来存取文件  </p>
@@ -638,14 +640,14 @@
 <ul>
 <li>空闲文件目录：一片连续空闲区组成一个空闲文件</li>
 </ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609858113570.png" alt="1609858113570"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/bd4f9cde-789e-4b13-b75f-7d52a52956de.png"></p>
 <ul>
 <li><p>空闲块链：所有空闲块连接在一起</p>
 </li>
 <li><p>位示图：每个bit对应1个存储块的使用情况，0表示占用，1表示空闲</p>
 </li>
 </ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609858143738.png" alt="1609858143738"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/f67cbb03-217b-43cc-bc93-ec172662b744.png"></p>
 <p>文件目录管理</p>
 <p>文件目录：  文件名址录，记录文件名和存放地址的目录表  </p>
 <p>文件全名：  包括从根目录开始到文件为止的通路上所有子目录路径。  </p>
@@ -742,7 +744,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

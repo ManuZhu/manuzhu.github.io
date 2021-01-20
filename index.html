@@ -147,6 +147,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/20/dasctf-12%E6%9C%88%E6%9C%88%E8%B5%9B-wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Manu Zhu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Manu Zhu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/20/dasctf-12%E6%9C%88%E6%9C%88%E8%B5%9B-wp/" class="post-title-link" itemprop="url">dasctf 12月月赛 wp</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-20 10:46:37 / Modified: 10:54:57" itemprop="dateCreated datePublished" datetime="2021-01-20T10:46:37+08:00">2021-01-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="asa"><a href="#asa" class="headerlink" title="asa"></a>asa</h3><p>两个n用了同一个质数，将n分解后按照顺序解出密钥在做aes解密就可以得到flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long, long_to_bytes</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ex_gcd</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a, <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    g, tx, ty = ex_gcd(b, a % b)</span><br><span class="line">    x = ty</span><br><span class="line">    y = tx - a // b * ty</span><br><span class="line">    <span class="keyword">return</span> g, x, y</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rsa_dec</span>(<span class="params">n, p, q, e, c</span>):</span></span><br><span class="line">    phi = (p - <span class="number">1</span>) * (q - <span class="number">1</span>)</span><br><span class="line">    _, d, _ = ex_gcd(e, phi)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(c, d, n)</span><br><span class="line"></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">n1 = <span class="number">0x661d752110bcc6ee5ca33edaf244716cccce6400dfdbfd84ce6ae2d8fbbeb2f61584da7668768403b6135e7810eae9d4d8e044935f8680de5324c3fc0f9bffb01812f9d2ac9055ee8dbd17b90c5a60cb7595a82f24a075d951db3b7f913b8543ecd52b8c8464ce348c3970d511ae911e814f9ca33b8412db2730e61820f5de47</span></span><br><span class="line">n2 = <span class="number">0x9f159326c907441326c88d17eae1c6e8aaea23922c5e628a585294e379e9245644f9c249c57f54a2b83921b4adc988fecc90c00feb6936d9be1f3a5ffae951b74ffbc6fc7aa11743e4ca179a937392dacf931e820d1d83016562ff608e8c59ef7310654a09bbba4a0129f71dcb61bd9bef073bbb93bfcac4a7a2e81156dbb32d</span></span><br><span class="line">c1 = <span class="number">0xd7931796fa39cfa37c0b621c01175904206dff1d74a28369dcd6517957ed76c5eb7d4934cbeb902119f9215f9ae7926debe3abe856244b45dbb4caaa2b93dbb79a3ca1a9813e1466c49fe3c03e5462811afbf3f40ff79927f9fe3681b7f3cef34466b9a736512f4931b5026eefacbae9be6e408085a7a636c514574c3b22ffe</span></span><br><span class="line">c2 = <span class="number">0x6240740d41a539a88634726cf0a791a87e02419c3c3e00dff62eba59e81a93fd04a59109e57f64fc375b9a321583b6fa133317eb5c4e6eb1e6f6d9a0b4ae6ff0c54423718811f7956cd63b7bf9c7f8e29f48dad8f05b63b71d6c5112d91864adba0d6bb342c67aee39ccd5e2a6928a8e4ab2248d29a0c990bae821b31b39b1f3</span></span><br><span class="line">p = <span class="number">9540203717217880059997385799331301649727503984010337568404427747385824530958536656147747848448822264268428226235860927158082497191830274046098671199542207</span></span><br><span class="line"></span><br><span class="line">q1 = n1 // p</span><br><span class="line">q2 = n2 // p</span><br><span class="line"></span><br><span class="line">key = rsa_dec(n1, p, q1, e, c1)</span><br><span class="line">iv = rsa_dec(n2, p, q2, e, c2)</span><br><span class="line">print(key, iv)</span><br><span class="line"></span><br><span class="line">key = long_to_bytes(key)</span><br><span class="line">iv = long_to_bytes(iv)</span><br><span class="line">c = <span class="number">0xf8559d671b720cd336f2d8518ad6eac8c405585158dfde74ced376ba42d9fe984d519dc185030ddec7b4dc240fd90fa8</span></span><br><span class="line">c = long_to_bytes(c)</span><br><span class="line"></span><br><span class="line">m = AES.new(key, AES.MODE_CBC, iv).decrypt(c)</span><br><span class="line">print(m)</span><br></pre></td></tr></table></figure>
+
+<h3 id="马老师"><a href="#马老师" class="headerlink" title="马老师"></a>马老师</h3><p>所有二维码扫出来是经典语录，没什么用。binwalk看到压缩包，foremost分解出来，其中棋盘图片是zip伪加密。</p>
+<p><img src="file:///C:/Users/ADMINI~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" alt="img"></p>
+<p>打开之后用狗眼看出来**md5(NianQingRenBuJiangWuDe)**得到的字符串是另外两个文件的解压密码，打开后根据要求还原成ook！密文，放到<a target="_blank" rel="noopener" href="https://ctf.bugku.com/tool/brainfuck">网站</a>解密得到flag</p>
+<h3 id="easyjs"><a href="#easyjs" class="headerlink" title="easyjs"></a>easyjs</h3><p>做法同网鼎杯总决赛-半决赛easyjs。</p>
+<p>payload:{“url”:”<a target="_blank" rel="noopener" href="http://127.0.0.2:10300/debug?url=http://a%2527@a;cp$%7BIFS%7D/flag$%7BIFS%7D/tmp/log%00&quot;%7D">http://127.0.0.2:10300/debug?url=http://a%2527@a;cp${IFS}/flag${IFS}/tmp/log%00&quot;}</a></p>
+<h3 id="easyphp"><a href="#easyphp" class="headerlink" title="easyphp"></a>easyphp</h3><p>做法同XNUCA2020 Final 个人赛php。</p>
+<p>phar反序列化。先伪协议读取template.php内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Template</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$content</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$pattern</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$suffix</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$content</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;content = <span class="variable">$content</span>;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;pattern = <span class="string">&quot;/&#123;&#123;([a-z]+)&#125;&#125;/&quot;</span>;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;suffix = <span class="string">&quot;.html&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">$this</span>-&gt;render();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="literal">True</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(preg_match(<span class="keyword">$this</span>-&gt;pattern, <span class="keyword">$this</span>-&gt;content, <span class="variable">$matches</span>)!==<span class="number">1</span>) </span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">global</span> $&#123;<span class="variable">$matches</span>[<span class="number">1</span>]&#125;;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">isset</span>($&#123;<span class="variable">$matches</span>[<span class="number">1</span>]&#125;)) &#123;</span><br><span class="line">			<span class="keyword">$this</span>-&gt;content = preg_replace(<span class="keyword">$this</span>-&gt;pattern, $&#123;<span class="variable">$matches</span>[<span class="number">1</span>]&#125;, <span class="keyword">$this</span>-&gt;content);</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(strlen(<span class="keyword">$this</span>-&gt;suffix)&gt;<span class="number">5</span>) &#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;error suffix&quot;</span>;</span><br><span class="line">		<span class="keyword">die</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="variable">$filename</span> = <span class="string">&#x27;/var/www/html/uploads/&#x27;</span> . md5(<span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>]) . <span class="string">&quot;/&quot;</span> . md5(<span class="keyword">$this</span>-&gt;content) . <span class="keyword">$this</span>-&gt;suffix;</span><br><span class="line">	file_put_contents(<span class="variable">$filename</span>, <span class="keyword">$this</span>-&gt;content);</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;Your html file is in &quot;</span> . <span class="variable">$filename</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可能需要修改suffix来执行php内容；存在文件上传；destruct魔术方法可以启动file_put_contents的文件操作，这样可以执行phar反序列化。先本地起个环境，执行内容，然后phar操作。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,10 +241,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-14 10:07:31 / Modified: 10:07:42" itemprop="dateCreated datePublished" datetime="2021-01-14T10:07:31+08:00">2021-01-14</time>
+              <time title="Created: 2021-01-14 10:07:31" itemprop="dateCreated datePublished" datetime="2021-01-14T10:07:31+08:00">2021-01-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-20 10:45:33" itemprop="dateModified" datetime="2021-01-20T10:45:33+08:00">2021-01-20</time>
+              </span>
 
           
 
@@ -445,7 +522,7 @@
 </ul>
 <h4 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h4><p>标志应用层的进程</p>
 <h3 id="传输层协议（1）——UDP"><a href="#传输层协议（1）——UDP" class="headerlink" title="传输层协议（1）——UDP"></a>传输层协议（1）——UDP</h3><p>提供运输层协议必须的服务：多路复用/分解、差错检查</p>
-<h4 id="UDP数据报格式"><a href="#UDP数据报格式" class="headerlink" title="UDP数据报格式"></a>UDP数据报格式</h4><p> <img src="http://c.biancheng.net/uploads/allimg/191111/6-1911111249535K.gif" alt="img"> </p>
+<h4 id="UDP数据报格式"><a href="#UDP数据报格式" class="headerlink" title="UDP数据报格式"></a>UDP数据报格式</h4><p> <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/54ba242b-8b39-40e1-bcb9-d01f85e68067.gif" alt="img"> </p>
 <h4 id="UDP处理数据的流程"><a href="#UDP处理数据的流程" class="headerlink" title="UDP处理数据的流程"></a>UDP处理数据的流程</h4><p>发送方</p>
 <ul>
 <li>从应用进程得到数据</li>
@@ -534,7 +611,7 @@
 <p><strong>TCP报文段=数据字段（MSS限制）+TCP首部</strong></p>
 </li>
 </ul>
-<h4 id="TCP数据报格式"><a href="#TCP数据报格式" class="headerlink" title="TCP数据报格式"></a>TCP数据报格式</h4><p> <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609999576689.png" alt="1609999576689"></p>
+<h4 id="TCP数据报格式"><a href="#TCP数据报格式" class="headerlink" title="TCP数据报格式"></a>TCP数据报格式</h4><p> <img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4480d5e8-dded-4d7a-b3d9-2bdb67e52f88.png" alt="1609999576689"></p>
 <ul>
 <li><p>源端口和目的端口字段——各占 2 字节。端口是运输层与应用层的服务接口。运输层的复用和分用功能都要通过端口才能实现。 </p>
 </li>
@@ -647,9 +724,9 @@
 <h5 id="调度策略"><a href="#调度策略" class="headerlink" title="调度策略"></a>调度策略</h5><p>FCFS（先来先服务）、WFQ（加权公平排队）、按类别轮流</p>
 <h5 id="排队（缓冲区设置）"><a href="#排队（缓冲区设置）" class="headerlink" title="排队（缓冲区设置）"></a>排队（缓冲区设置）</h5><p>RFC 3439：B=RTT*R</p>
 <p>理论研究：N表示TCP连接数<br>$$<br>B=\frac{RTT\times R}{\sqrt N}<br>$$</p>
-<h5 id="分组丢弃策略"><a href="#分组丢弃策略" class="headerlink" title="分组丢弃策略"></a>分组丢弃策略</h5><h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h3><h4 id="IP数据报的格式"><a href="#IP数据报的格式" class="headerlink" title="IP数据报的格式"></a>IP数据报的格式</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1610009844111.png" alt="1610009844111"></p>
+<h5 id="分组丢弃策略"><a href="#分组丢弃策略" class="headerlink" title="分组丢弃策略"></a>分组丢弃策略</h5><h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h3><h4 id="IP数据报的格式"><a href="#IP数据报的格式" class="headerlink" title="IP数据报的格式"></a>IP数据报的格式</h4><p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/ce4a2145-55d3-4a3d-acb1-df2f5e458993.png" alt="1610009844111"></p>
 <h4 id="IPv4协议（1）——编址"><a href="#IPv4协议（1）——编址" class="headerlink" title="IPv4协议（1）——编址"></a>IPv4协议（1）——编址</h4><h5 id="ip结构"><a href="#ip结构" class="headerlink" title="ip结构"></a>ip结构</h5><p>32位=网络号+主机号</p>
-<h5 id="ip分类"><a href="#ip分类" class="headerlink" title="ip分类"></a>ip分类</h5><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1610007165052.png" alt="1610007165052"></p>
+<h5 id="ip分类"><a href="#ip分类" class="headerlink" title="ip分类"></a>ip分类</h5><p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/979a16e6-3080-4acd-989e-7f716d510251.png" alt="1610007165052"></p>
 <h5 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h5><p>从主机号中借用一部分位数作为子网号。</p>
 <h5 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h5><p>A类默认：255.0.0.0</p>
 <p>B类默认：255.255.0.0</p>
@@ -688,8 +765,8 @@
 </ul>
 <h4 id="ICMP：因特网控制报文协议"><a href="#ICMP：因特网控制报文协议" class="headerlink" title="ICMP：因特网控制报文协议"></a>ICMP：因特网控制报文协议</h4><p>用于主机、路由器、网关之间交换网络层信息</p>
 <h5 id="ICMP报文分类"><a href="#ICMP报文分类" class="headerlink" title="ICMP报文分类"></a>ICMP报文分类</h5><p>ICMP差错报告报文，ICMP询问报文。</p>
-<h5 id="ICMP报文格式"><a href="#ICMP报文格式" class="headerlink" title="ICMP报文格式"></a>ICMP报文格式</h5><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1610009961120.png" alt="1610009961120"></p>
-<h4 id="IPv6协议"><a href="#IPv6协议" class="headerlink" title="IPv6协议"></a>IPv6协议</h4><h5 id="IPv6数据报格式"><a href="#IPv6数据报格式" class="headerlink" title="IPv6数据报格式"></a>IPv6数据报格式</h5><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1610010193854.png" alt="1610010193854"></p>
+<h5 id="ICMP报文格式"><a href="#ICMP报文格式" class="headerlink" title="ICMP报文格式"></a>ICMP报文格式</h5><p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/1041f52f-0f53-4344-ac65-13b7e9b47af2.png" alt="1610009961120"></p>
+<h4 id="IPv6协议"><a href="#IPv6协议" class="headerlink" title="IPv6协议"></a>IPv6协议</h4><h5 id="IPv6数据报格式"><a href="#IPv6数据报格式" class="headerlink" title="IPv6数据报格式"></a>IPv6数据报格式</h5><p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/f30de613-8471-4b57-b10d-181d614e6912.png" alt="1610010193854"></p>
 <h3 id="选路算法"><a href="#选路算法" class="headerlink" title="选路算法"></a>选路算法</h3><h4 id="几个概念："><a href="#几个概念：" class="headerlink" title="几个概念："></a>几个概念：</h4><ul>
 <li>默认路由器：  一台主机“直接” 连接到的路由器 。</li>
 <li>源路由器：源主机的默认路由器。</li>
@@ -816,10 +893,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-14 10:05:32 / Modified: 10:05:58" itemprop="dateCreated datePublished" datetime="2021-01-14T10:05:32+08:00">2021-01-14</time>
+              <time title="Created: 2021-01-14 10:05:32" itemprop="dateCreated datePublished" datetime="2021-01-14T10:05:32+08:00">2021-01-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-20 10:42:01" itemprop="dateModified" datetime="2021-01-20T10:42:01+08:00">2021-01-20</time>
+              </span>
 
           
 
@@ -980,16 +1063,12 @@
 </ul>
 <p>五态：</p>
 <ul>
-<li><p>活跃就绪：是指进程在主存并且可被调度的状态。</p>
-</li>
-<li><p>静止就绪（挂起就绪）：是指进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程，或者是挂起就绪态进程具有更高的优先级，系统将把挂起就绪态进程调回主存并转换为活跃就绪。</p>
-</li>
-<li><p>活跃阻塞：是指进程已在主存，一旦等待的事件产生便进入活跃就绪状态。</p>
-</li>
-<li><p>静止阻塞：是指进程对换到辅存时的阻塞状态，一旦等待的事件产生便进入静止就绪状态。</p>
-<p><img src="https://img-blog.csdn.net/20170820104628964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> </p>
-</li>
+<li>活跃就绪：是指进程在主存并且可被调度的状态。</li>
+<li>静止就绪（挂起就绪）：是指进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程，或者是挂起就绪态进程具有更高的优先级，系统将把挂起就绪态进程调回主存并转换为活跃就绪。</li>
+<li>活跃阻塞：是指进程已在主存，一旦等待的事件产生便进入活跃就绪状态。</li>
+<li>静止阻塞：是指进程对换到辅存时的阻塞状态，一旦等待的事件产生便进入静止就绪状态。</li>
 </ul>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/3c07a0a2-7951-45dc-86d5-656aeb2d8318.png"></p>
 <p>进程控制块(Process Control Block，PCB)  ：包含pid，进程当前的状态，next指针（指向当前队列的下一个进程），进程优先级，cpu现场保护区，和别的进程的通信信息，家族关系，占有资源清单等等。 </p>
 <p>进程控制的概念：在进程生存全期间，对其全部行为的控制</p>
 <p>四个典型的控制行为</p>
@@ -1249,11 +1328,11 @@
 </li>
 <li><p>物理结构：</p>
 <p>连续文件</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829442770.png" alt="1609829442770"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/53d63d54-489f-4ca1-81e7-b6bd1594db6f.png"></p>
 <p>索引结构</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829571681.png" alt="1609829571681"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/4516bee4-4917-414a-9c47-b0a514e7194a.png"></p>
 <p>串联文件（FAT文件系统）</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609829594656.png" alt="1609829594656"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/0821c4a2-5f1b-4fac-9fcd-e383e14e9646.png"></p>
 </li>
 </ul>
 <p>文件系统的目标是让用户以文件名来存取文件  </p>
@@ -1273,14 +1352,14 @@
 <ul>
 <li>空闲文件目录：一片连续空闲区组成一个空闲文件</li>
 </ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609858113570.png" alt="1609858113570"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/bd4f9cde-789e-4b13-b75f-7d52a52956de.png"></p>
 <ul>
 <li><p>空闲块链：所有空闲块连接在一起</p>
 </li>
 <li><p>位示图：每个bit对应1个存储块的使用情况，0表示占用，1表示空闲</p>
 </li>
 </ul>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1609858143738.png" alt="1609858143738"></p>
+<p><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/f67cbb03-217b-43cc-bc93-ec172662b744.png"></p>
 <p>文件目录管理</p>
 <p>文件目录：  文件名址录，记录文件名和存放地址的目录表  </p>
 <p>文件全名：  包括从根目录开始到文件为止的通路上所有子目录路径。  </p>
@@ -1326,10 +1405,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-14 10:04:50 / Modified: 10:05:12" itemprop="dateCreated datePublished" datetime="2021-01-14T10:04:50+08:00">2021-01-14</time>
+              <time title="Created: 2021-01-14 10:04:50" itemprop="dateCreated datePublished" datetime="2021-01-14T10:04:50+08:00">2021-01-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-20 10:36:12" itemprop="dateModified" datetime="2021-01-20T10:36:12+08:00">2021-01-20</time>
+              </span>
 
           
 
@@ -1404,10 +1489,21 @@
 </li>
 </ul>
 <h3 id="文件包含-读取"><a href="#文件包含-读取" class="headerlink" title="文件包含/读取"></a>文件包含/读取</h3><ul>
-<li><p>file_get_contents:<br>$str = $_GET[‘cmd’];$a = file_get_contents($str,’r’);if($a === “XXXX”)<br>这时需要给cmd赋为php://input，这样就会读取post中的内容，但post格式不能为 multipart/form-data。<br>目录穿越时是不能出现文件的，只能是目录。</p>
+<li><p>file_get_contents:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="variable">$str</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$a</span> = file_get_contents(<span class="variable">$str</span>,<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$a</span> === <span class="string">&quot;XXXX&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这时需要给cmd赋为php://input，这样就会读取post中的内容，但post格式不能为 multipart/form-data。</p>
 </li>
-<li><p>include：<br>读取文件时可以利用<br>file=php://filter/read=convert.base64-encode/resource=flag.phpfile=php://filter/convert.base64-encode/resource=index.php<br>读取文件内容。</p>
+<li><p>目录穿越时是不能出现文件的，只能是目录。</p>
 </li>
+<li><p>include：<br>读取文件时可以利用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file=php:<span class="comment">//filter/read=convert.base64-encode/resource=flag.php</span></span><br><span class="line">  file=php:<span class="comment">//filter/convert.base64-encode/resource=index.php</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>  读取文件内容。</p>
+<ul>
 <li><p>LFI（local file inclusion vulnerability） To RCE：参考[这个](<a target="_blank" rel="noopener" href="https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]">https://bbs.zkaq.cn/t/3639.html[https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B%20PHP%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E/#5-proc-self-environ]</a>(<a target="_blank" rel="noopener" href="https://www.k0rz3n.com/2018/11/20/%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%A6%E4%BD%A0%E7%90%86%E8%A7%A3%E6%BC%8F%E6%B4%9E%E4%B9%8B">https://www.k0rz3n.com/2018/11/20/一篇文章带你理解漏洞之</a> PHP 文件包含漏洞/#5-proc-self-environ))</p>
 </li>
 <li><p>phar:</p>
@@ -1516,7 +1612,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
