@@ -147,6 +147,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/28/sql%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Manu Zhu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Manu Zhu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/28/sql%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">sql笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-28 10:46:37 / Modified: 11:55:08" itemprop="dateCreated datePublished" datetime="2021-01-28T10:46:37+08:00">2021-01-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="sql的执行顺序"><a href="#sql的执行顺序" class="headerlink" title="sql的执行顺序"></a>sql的执行顺序</h4><ol>
+<li>执行from</li>
+<li>where条件过滤</li>
+<li>group by分组</li>
+<li>执行select投影列（聚合函数）</li>
+<li>having条件过滤</li>
+<li>执行order by排序</li>
+</ol>
+<h4 id="sql语言分类"><a href="#sql语言分类" class="headerlink" title="sql语言分类"></a>sql语言分类</h4><ol>
+<li>数据查询语言（DQL）：是由SELECT子句，FROM子句，WHERE子句组成的查询块</li>
+<li>数据操纵语言（DML）: SELECT(查询) INSERT(插入) UPDATE(更新) DELETE(删除）</li>
+<li>数据定义语言（DDL）：CREATE(创建数据库或表或索引）ALTER(修改表或者数据库）DROP(删除表或索引）</li>
+<li>数据控制语言（DCL）：GRANT(赋予用户权限） REVOKE(收回权限） DENY(禁止权限)</li>
+<li>事务控制语言（TCL）：SAVEPOINT (设置保存点）ROLLBACK (回滚) COMMIT(提交)</li>
+</ol>
+<h4 id="datediff函数"><a href="#datediff函数" class="headerlink" title="datediff函数"></a>datediff函数</h4><p>datediff（dd,RDDATE,getdate()）==0含义，即判断以日为单位（dd），RDDATE和当前日期（getdate）是否相差为0日。</p>
+<h4 id="insert-into和select-into"><a href="#insert-into和select-into" class="headerlink" title="insert into和select into"></a>insert into和select into</h4><p>insert into用于向表中插入新的一行</p>
+<p>select into从一个表中选取数据，然后把数据插入另一个表中</p>
+<h4 id="修改表操作"><a href="#修改表操作" class="headerlink" title="修改表操作"></a>修改表操作</h4><p> ALTER TABLE &lt;表名&gt; [修改选项] { ADD COLUMN &lt;列名&gt; &lt;类型&gt;<br> | CHANGE COLUMN &lt;旧列名&gt; &lt;新列名&gt; &lt;新列类型&gt;<br> | ALTER COLUMN &lt;列名&gt; { SET DEFAULT &lt;默认值&gt; | DROP DEFAULT }<br> | MODIFY COLUMN &lt;列名&gt; &lt;类型&gt;<br> | DROP COLUMN &lt;列名&gt;<br> | RENAME TO &lt;新表名&gt; }</p>
+<h4 id="where和having"><a href="#where和having" class="headerlink" title="where和having"></a>where和having</h4><ul>
+<li>where子句用来指定行所对应的条件</li>
+<li>having子句用来指定组所对应的条件</li>
+<li>group by用来限定分组条件，having必须和group by连用</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/20/dasctf-12%E6%9C%88%E6%9C%88%E8%B5%9B-wp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1612,7 +1694,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
